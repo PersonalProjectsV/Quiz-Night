@@ -1,0 +1,14 @@
+<div id="page">
+  <h1>Quiz Night</h1>
+  <hr>
+
+  <h3>Select a quiz</h3>
+
+  <div>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option (selectedChange)="movieSelected(movie)" *ngFor="let movie of movies" [value]="movie">
+        {{movie.name}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>

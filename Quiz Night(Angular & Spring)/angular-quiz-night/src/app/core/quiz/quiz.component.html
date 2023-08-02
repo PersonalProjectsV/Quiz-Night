@@ -1,0 +1,17 @@
+<div *ngIf="movie" id="page">
+  <H1>{{movie.name}}</H1>
+  <p style="background-color: red;" *ngIf="answerAllError">Please answer all the questions</p>
+  <br>
+  <div *ngFor="let movieQuestion of movie.questions; let i = index">
+    <p>{{movieQuestion.question}}</p>
+    <mat-radio-group  >
+      <mat-radio-button (change)="radioChanged(i,questionAnswer)" style="display: block;" *ngFor="let questionAnswer of movieQuestion.answers" [value]="questionAnswer">
+        {{questionAnswer.answer}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <hr>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+  <button mat-raised-button color="primary" (click)="backToHome()">Back to home</button>
+</div>
